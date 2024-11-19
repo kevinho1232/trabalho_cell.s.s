@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <title>Projeto Gerenciamento Celulares</title>
+    <meta name="author" content="Julius Cavalcante">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/006642858d.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20230713/pngtree-orange-themed-3d-rendering-of-a-design-store-featuring-mobile-phones-image_3860072.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            background-color: rgba(255, 255, 255, 0.9);  
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <h3 style="text-align: center;">Últimos Celulares Ativos</h3>
+            <hr>
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Cor</th>
+                    <th scope="col">Ação</th>
+                </thead>
+                <tbody>
+                    <tr scope="row" th:each="celular : ${celularesAtivos}">
+                        <td th:text="${celular.modelo}"></td>
+                        <td th:text="${celular.marca}"></td>
+                        <td th:text="${celular.preco}"></td>
+                        <td th:text="${celular.status}"></td>
+                        <td th:text="${celular.cor}"></td>
+                        <td>
+                            <a class="btn btn-primary" th:href="@{editar/{id}(id=${celular.id})}">
+                                <i class="bi bi-pencil-square"></i> Editar
+                            </a>
+                            <a class="btn btn-danger" th:href="@{remover/{id}(id=${celular.id})}">
+                                <i class="bi bi-x-square"></i> Remover
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <title>Sistema de Gerenciamento de Alunos</title>
+    <meta name="author" content="Julius Cavalcante">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/006642858d.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
+
+</head>
+    <body>
+    <!-- Header -->
+    <header th:fragment="cabecalho">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(65, 0, 125)">
+            <a th:href="@{/index}" class="navbar-brand">
+                <h1 class="Eater" style=" 
+                font-weight: 400;
+                font-style: normal;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0.8, 0.9);
+                margin-left: 90px;">C.S.S</h1>
+            </a>
+            
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMobile">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navMobile" class="navbar-collapse collapse justify-content-end" style="margin-right: 80px ;">
+
+                <a th:href="@{/index}" class="btn-nav nav-item nav-link"><i class="bi bi-house-door"></i> Inicio</a>
+                <a class="btn-nav nav-item nav-link" th:href="@{inserirCelular}"><i class="bi bi-person-plus"></i> Cadastrar Celular</a>
+                <a class="btn-nav nav-item nav-link" th:href="@{filtro-Celulares}" ><i class="bi bi-search"></i> Pesquisar Celular</a>
+                <form action="/logout" method="post">
+                <button type="submit" class="btn-nav-sair nav-item nav-link btn-danger"><i class="bi bi-box-arrow-right"></i>Sair</button>
+                </form>
+
+            </div>
+        </nav>
+    </header>
+    <!-- Footer -->
+    <footer th:fragment="rodape">
+        <div class="rodape" style="background-color: rgb(65, 0, 125);">
+            <span>Aplicativo para reserva de celular&copy; Kevin & Ruan</span>
+        </div>
+    </footer>
+
+        <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
